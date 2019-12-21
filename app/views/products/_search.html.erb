@@ -1,0 +1,5 @@
+	<label for="post_search"></label>
+  <%= form_tag products_path,role: 'search', method: :get do |f|%>
+    <%= text_field_tag :q, params[:q], class: 'btn-btn-outline-primary'%>
+  <%= button_tag "Search", class: 'btn btn-default', name: nil %>
+  <% end %>

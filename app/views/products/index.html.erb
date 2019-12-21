@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<%= render partial: 'search'%>
+<table class = "table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Code of product</td>
+      <td>Price</td>
+      <td>Unit</td>
+      <td>Count in store</td>
+      <td>Country</td>
+      <td>Store</td>
+      <td colspan="3"></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.code %></td>
+        <td><%= product.price %></td>
+        <td><%= product.unit %></td>
+        <td><%= product.count %></td>
+        <td><%= product.category.name%> </td>
+        <td><%= "#{product.store.name} №#{product.store.number}"%></td> 
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
